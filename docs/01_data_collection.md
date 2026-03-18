@@ -1,25 +1,56 @@
-It is recommended to check out the [road map for projects at CIR](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/road-map-for-projects-at-cir) to get an overview of some important checkpoints common for most imaging projects.
+It is recommended to check out the [road map for projects at CIR](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/road-map-for-projects-at-cir){target="_blank"} to get an overview of some important checkpoints common for most imaging projects.
 
 Generally, data collected at CIR is gathered at the _Shared Platform for Imaging in the CIR Environment_ - SPICE. This is a high performance compute cluster that store data for active projects and offer compute resources for users to analyze their data remotely.
 
-Data must be collected within a project registered with CIR. Registering a project is done by the projects PI agreeing to the [user agreement](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/user-agreement-details), filling out and signing the [project registration webform](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/register-new-project-at-cir).
+## Project and access
+Data must be collected within a project registered with CIR. Registering a project is done by the projects PI agreeing to the [user agreement](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/user-agreement-details){target="_blank"}, and filling out and signing the [project registration webform](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/register-new-project-at-cir){target="_blank"}.
 
-### Collecting data at CIR
-Some imaging facilities can be "self-use" by researchers or students for data collection after training, while others have facility staff to run equipment and experiments. Regardless, it is important that any data is clearly labeled as it is collected.
+A project folder that can only be accessed by the PI and specified researchers is then added to SPICE and data collected within your project is gathered here. Individual researchers that need a user account on SPICE should fill out [this form](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/request-to-access-the-cir-server){target="_blank"} - project access is granted following confirmation from the projects PI.
 
-To keep track of your data, CIR offer a simple [redcap](https://medarbetare.ki.se/forskarstod/hantera-forskningsdata/redcap/introduktion-till-redcap) form to fill out at data collection. By registering who is collecting what data, at what facility, the resulting data is gathered in your projects folder on SPICE within 24 hours.
+## Gathering the data for your project
+Different imaging facilities have different systems for labeling data - you should not have to worry about this. To simplify data tracking and handling, CIR offer to keep track of, and gather the data collected for all imaging modalities used in your project.
 
+This is done through a simple [**Redcap**](https://medarbetare.ki.se/forskarstod/hantera-forskningsdata/skapa-samla-in-och-lagra-forskningsdata/redcap/introduktion-till-redcap){target="_blank"} form to fill out at data collection. In short, Redcap is an encrypted, backed-up, local to KI, 2FA secured, logged, service for collecting clinical and research data and approved for storing of personal data. Incorporate filling this form as part of your protocol for data collection. By registering who is collecting what data, at what facility, the resulting data is gathered in your projects folder on SPICE within 24 hours. The information you fill out is used to pseudonymize your data so that data can be gathered to your project without personal information and imaging data having to be stored together.
+
+A fundamental principle within CIR is that all data on SPICE is pseudonymized. However, you have full control over your own project folder and can for example upload questionnaire responses or other auxiliary data you may need for your analysis. You, or someone in your group accidentally uploading personal information to your project is outside the control of CIR. The ultimate responsibility for data integrity lies with the PI of the project.
 
 <p style="text-align: center; font-size: 36px; font-weight: bold;">
-  You find the redcap form:
-  <a href="https://redcap.ki.se/surveys/?s=CFPWKM8DXEK4KYMA">
-    on this link
+  Go to:
+  <a href="https://redcap.link/cir-session" target="_blank">
+    https://redcap.link/cir-session
   </a>
-  or via the QR code below.
+  to register your data collection.
 </p>
 
+<style>
+.narrow-caption figcaption { max-width: 1000px; margin: 0 auto; }
+</style>
 
-![Edit this page screenshot]({{ picture_path }}/redcap_qr.png){ width="300" }
+![Data flow]({{ picture_path }}/data_structure.png){ width="1200" }
 /// caption
-Register new data collection at CIR.
+    attrs: {class: narrow-caption}
+Overview of how different facilities (in this example MRC and NatMEG) use different data structures when data is collected and how CIR gather it in a BIDS-inspired (subject/session/modality) format in your project folder.
+///
+
+If you are are only using one imaging modality and are used to organizing your raw data yourself, you can have whatever data is collected in your project syncronized to your project folder in the corresponding facilities data format (i.e. what is to the left in the image above).
+
+As you collect data in your project, a html-report is kept updated in your project folder on SPICE. This provide an overview of who collected what data when and where in your project, the key to the different IDs used by facilities and when data was collected and transferred to your project folder. This makes it easy to quickly gauge that everything gets collected as expected during your project.
+
+![Project report]({{ picture_path }}/project_overview_table.png){ width="1200" }
+/// caption
+    attrs: {class: narrow-caption}
+An example of the overview report rendered in your project folder. The table can be sorted, searched and filtered by you for quick checking that data is collected as expected.
+///
+
+## Purpose
+CIR want to increase availability to imaging research at KI and specifically make it easier to conduct multimodal imaging research. No time should be wasted for individual researchers for finding, organizing and transforming imaging data. As data is gathered within a project, it can easily be structured according to the [BIDS](https://bids.neuroimaging.io/index.html){target ="_blank"} standard which allow for common pre-processing tools (or [BIDS-apps](https://bids.neuroimaging.io/tools/bids-apps.html){target="_blank"}, like [fmriprep](https://fmriprep.org/en/stable/){target="_blank"}, [petprep](https://github.com/nipreps/petprep){target="_blank"}, [PyMVPA](https://github.com/bids-apps/PyMVPA){target="_blank"}, etc.) to process the data. The goal for CIR is therefore:
+
+  1. ✅ Have data for all imaging facilities organized and available and  within 24 hours of collection.
+  2. Offer support to store all data in BIDS with minimal researcher input.
+  3. Offer quality control report of collected data wihtin days of collection.
+  4. Disseminate and share pre-processing pipelines between projects (e.g. via this wiki and public git repos)
+
+![CIR Pyramid]({{ picture_path }}/CIR-pyramid.png){ width="500" }
+/// caption
+The added value of having data organized in a standard format for all projects and modalitites is that sharing data and pre-processing is easy and different research groups do not have to re-invent the wheel for every new project.
 ///

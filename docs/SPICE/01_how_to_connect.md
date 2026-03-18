@@ -16,8 +16,12 @@ There are three ways to connnect to SPICE using secure shell ([SSH](https://en.w
 - Using an [Integrated development environment](https://en.wikipedia.org/wiki/Integrated_development_environment), like [VScode](https://code.visualstudio.com/) or [Spyder](https://www.spyder-ide.org/). This is useful for editing code (with AI assistance), developing analysis and running scripts. Preferred for most tasks and the recommended way to work with SPICE.
 - Using a remote desktop client, useful if you need to use a graphical interface on the server.
 
-!!! note "KI VPN"
-    You have to be connected to the [KI VPN](https://staff.ki.se/tools-and-support/it-and-telephony/tools-for-working-off-campus/vpn-service-ki-vpn) to access SPICE.
+!!! note "KI Network"
+    You have to be on the KI network to access SPICE. That means either a wired connection at KI campus or connected to the VPN on a [KI Karyon client](https://staff.ki.se/tools-and-support/it-and-telephony/order-it-and-telephony-services/ki-client-karyon-your-standard-computer-at-ki).
+
+    No, just being connected to the "KI-Staff" wi-fi is not enough.
+    
+    Unfortunately the [KI VPN](https://staff.ki.se/tools-and-support/it-and-telephony/tools-for-working-off-campus/vpn-service-ki-vpn) is being phased out by central IT, limiting options for access for external partners.
 
 ## In terminal
 Open a Terminal (Linux/macOS) or Command Prompt (Windows). Note,  windows _power shell_ does not support SSH by default, seach for `cmd` or `command prompt` in the start menu to find the correct application.

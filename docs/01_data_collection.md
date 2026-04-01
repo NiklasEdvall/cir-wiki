@@ -12,9 +12,9 @@ The added value of having data organized in a standard format for all projects a
 
 CIR want to increase availability to imaging research at KI and specifically make it easier to conduct multimodal imaging research. No time should be wasted for individual researchers for finding, organizing and transforming imaging data. As data is gathered within a project, it can easily be structured according to the [BIDS](https://bids.neuroimaging.io/index.html){target ="_blank"} standard which allow for common pre-processing tools (or [BIDS-apps](https://bids.neuroimaging.io/tools/bids-apps.html){target="_blank"}, like [fmriprep](https://fmriprep.org/en/stable/){target="_blank"}, [petprep](https://github.com/nipreps/petprep){target="_blank"}, [PyMVPA](https://github.com/bids-apps/PyMVPA){target="_blank"}, etc.) to process the data. The goal for CIR is to:
 
-  1. Have data for all imaging facilities organized and available  within 24 hours of collection.
+  1. Have data for all imaging facilities organized and available within 24 hours of collection.
   2. Offer support to store all data in BIDS with minimal researcher input.
-  3. Offer quality control report of collected data wihtin days of collection.
+  3. Offer quality control report of collected data within days of collection.
   4. Disseminate and share pre-processing pipelines between projects (e.g. via this wiki and public git repos)
 
 ## Project and access

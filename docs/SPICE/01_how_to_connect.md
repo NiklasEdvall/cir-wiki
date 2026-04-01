@@ -4,6 +4,8 @@ title: How to connect
 
 To get access to SPICE you need to be a member of a research group that has an active project at CIR. Fill out the [the webform on the KI web page](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/request-to-access-the-cir-server)  to request a new user account. Access is granted after approval by the projects PI. Your user credentials (username and password) will be sent to you in the email address you provided in the form.
 
+If you already have a user account on SPICE and received access to a new project, you need to log out and back in <br>again with: `pkill -u yourusername` for your permissions to be updated.
+
 !!! warning "Password security"
     Your first course of action after receiving your credentials should be to change your password to something only you know. Use the command `passwd` after logging in for the first time and follow the prompts.
 

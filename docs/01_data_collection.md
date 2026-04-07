@@ -2,6 +2,21 @@ It is recommended to check out the [road map for projects at CIR](https://ki.se/
 
 Generally, data collected at CIR is gathered at the _Shared Platform for Imaging in the CIR Environment_ - SPICE. This is a high performance compute cluster that store data for active projects and offer compute resources for users to analyze their data remotely.
 
+## Purpose
+
+![CIR Pyramid]({{ picture_path }}/CIR-pyramid.png){ width="350" }
+/// caption
+    attrs: {class: float-right-box}
+The added value of having data organized in a standard format for all projects and modalitites is that sharing data and pre-processing is easy and different research groups do not have to re-invent the wheel for every new project.
+///
+
+CIR want to increase availability to imaging research at KI and specifically make it easier to conduct multimodal imaging research. No time should be wasted for individual researchers for finding, organizing and transforming imaging data. As data is gathered within a project, it can easily be structured according to the [BIDS](https://bids.neuroimaging.io/index.html){target ="_blank"} standard which allow for common pre-processing tools (or [BIDS-apps](https://bids.neuroimaging.io/tools/bids-apps.html){target="_blank"}, like [fmriprep](https://fmriprep.org/en/stable/){target="_blank"}, [petprep](https://github.com/nipreps/petprep){target="_blank"}, [PyMVPA](https://github.com/bids-apps/PyMVPA){target="_blank"}, etc.) to process the data. The goal for CIR is to:
+
+  1. Have data for all imaging facilities organized and available within 24 hours of collection.
+  2. Offer support to store all data in BIDS with minimal researcher input.
+  3. Offer quality control report of collected data within days of collection.
+  4. Disseminate and share pre-processing pipelines between projects (e.g. via this wiki and public git repos)
+
 ## Project and access
 Data must be collected within a project registered with CIR. Registering a project is done by the projects PI agreeing to the [user agreement](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/user-agreement-details){target="_blank"}, and filling out and signing the [project registration webform](https://ki.se/en/research/research-areas-centres-and-networks/research-centres/centre-for-imaging-research-cir/register-new-project-at-cir){target="_blank"}.
 
@@ -32,25 +47,13 @@ A fundamental principle within CIR is that all data on SPICE is pseudonymized. H
 Overview of how different facilities (in this example MRC and NatMEG) use different data structures when data is collected and how CIR gather it in a BIDS-inspired (subject/session/modality) format in your project folder.
 ///
 
-If you are are only using one imaging modality and are used to organizing your raw data yourself, you can have whatever data is collected in your project syncronized to your project folder in the corresponding facilities data format (i.e. what is to the left in the image above).
+!!! note "Do it yourself?"
+    If you are used to organizing your raw data yourself, and do not want to register your data collection in Redcap, you can have whatever data is collected in your project syncronized to your project folder in the corresponding facilities data structure (i.e. what is to the left in the image above). In this case, CIR can not assist you with keeping track of the different subject-IDs used by the different facilities, provide the same level of support for organizing your data in BIDS or generate a report of what data is collected in your project.
 
-As you collect data in your project, a html-report is kept updated in your project folder on SPICE. This provide an overview of who collected what data when and where in your project, the key to the different IDs used by facilities and when data was collected and transferred to your project folder. This makes it easy to quickly gauge that everything gets collected as expected during your project.
+Using the redcap form to register your data collection, as described above, a html-report is kept updated in your project folder on SPICE. This provide an overview of who collected what data when and where in your project, the key to the different IDs used by facilities and when data was collected and transferred to your project folder. This makes it easy to quickly gauge that everything gets collected as expected during your project.
 
 ![Project report]({{ picture_path }}/project_overview_table.png){ width="1200" }
 /// caption
     attrs: {class: narrow-caption}
 An example of the overview report rendered in your project folder. The table can be sorted, searched and filtered by you for quick checking that data is collected as expected.
-///
-
-## Purpose
-CIR want to increase availability to imaging research at KI and specifically make it easier to conduct multimodal imaging research. No time should be wasted for individual researchers for finding, organizing and transforming imaging data. As data is gathered within a project, it can easily be structured according to the [BIDS](https://bids.neuroimaging.io/index.html){target ="_blank"} standard which allow for common pre-processing tools (or [BIDS-apps](https://bids.neuroimaging.io/tools/bids-apps.html){target="_blank"}, like [fmriprep](https://fmriprep.org/en/stable/){target="_blank"}, [petprep](https://github.com/nipreps/petprep){target="_blank"}, [PyMVPA](https://github.com/bids-apps/PyMVPA){target="_blank"}, etc.) to process the data. The goal for CIR is therefore:
-
-  1. ✅ Have data for all imaging facilities organized and available and  within 24 hours of collection.
-  2. Offer support to store all data in BIDS with minimal researcher input.
-  3. Offer quality control report of collected data wihtin days of collection.
-  4. Disseminate and share pre-processing pipelines between projects (e.g. via this wiki and public git repos)
-
-![CIR Pyramid]({{ picture_path }}/CIR-pyramid.png){ width="500" }
-/// caption
-The added value of having data organized in a standard format for all projects and modalitites is that sharing data and pre-processing is easy and different research groups do not have to re-invent the wheel for every new project.
 ///

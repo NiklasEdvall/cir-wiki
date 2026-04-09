@@ -119,7 +119,7 @@ Note that the ASL sequence (Series number 5) is split in two entries. Some seque
 /// caption
 ///
 
-For the T1 it's enough to select its unique `Series description` as a criteria for identifying this as a unique sequence in the data. For the ASL sequence, the `Image type` must also be selected and included as a criteria to keep the original ASL data and the m0 reference scan separate in the BIDS output. That is, the combination of criteria must be unique for each row of data that you want in the BIDS output. If not, dcm2bids will not know how to separate them and they will be merged in the BIDS output, or separated by the best guess dcm2bids can make, usually by includig a `run-1` and `run-2` tag.
+For the T1 it's enough to select its unique `Series description` as a criteria for identifying this as a unique sequence in the data. For the ASL sequence, the `Image type` must also be selected and included as a criteria to keep the ASL data and the m0 reference scan separate in the BIDS output. That is, the combination of criteria must be unique for each row of data that you want in the BIDS output. If not, dcm2bids will not know how to separate them and they will be merged in the BIDS output, or separated by the best guess dcm2bids can make, usually by includig a `run-1` and `run-2` tag.
 
 
 <br>

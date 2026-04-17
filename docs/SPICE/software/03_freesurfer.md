@@ -10,30 +10,28 @@ This container includes:
 - MNE-Python
 
 
-## Start the container
-Run the following command from a terminal.
+## FreeSurfer license
 
-This mounts your current working directory into the container, making files in that directory available inside the container. Make sure you are in the directory where your data is located (or in a parent directory).
+You need a freesurfer license. If you don't have one, follow this [link](https://surfer.nmr.mgh.harvard.edu/registration.html). Upload it to SPICE and note the path to the license file for use in the next section.
+
+
+## Start the container
+Run the following commands from a terminal.
 
 ```bash
+PROJECT_DIR=/data/projects/<project_name>
+FS_LICENSE=<path_to_freesurfer_license>
+SUBJECTS_DIR=<path_to_SUBJECTS_DIR>
+
 singularity shell \
-    --bind $(pwd):$(pwd) \
+    --bind $PROJECT_DIR \
     --cleanenv \
+    --env FS_LICENSE=$FS_LICENSE \
+    --env SUBJECTS_DIR=$SUBJECTS_DIR \
     /scratch/singularityContainers/mne_freesurfer.sif
 ```
 
-## FreeSurfer usage
-
-You need a freesurfer license. If you don't have one, follow this [link](https://surfer.nmr.mgh.harvard.edu/registration.html). Upload it to SPICE and define the path to the FS_LICENSE in the singularity terminal.
-
-```
-export FS_LICENSE=<path_to_freesurfer_license>
-```
-
-Next step is to define the freesurfer SUBJECTS_DIR where the output will be saved to.
-```
-SUBJECTS_DIR="<path_to_SUBJECTS_DIR>"
-```
+This mounts your PROJECT_DIR into the container, making all files in that directory available inside the container. You can also specify paths to other directories if needed using the --bind option.
 
 Now you are ready to run freesurfer!
 ```

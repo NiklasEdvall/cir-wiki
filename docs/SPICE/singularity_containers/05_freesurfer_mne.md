@@ -1,19 +1,15 @@
-
 ---
 title: FreeSurfer and MNE-Python
 ---
 
 This container holds FreeSurfer and MNE-Python, which are commonly used for structural MRI processing and MEG/EEG data analysis. Both these requirements are needed to create the BEM surfaces for source localisation. 
 
+Location: `/scratch/singularityContainers/mne_freesurfer.sif`
 
-
-
-
-# Dev notes
+## Dev notes
 For future reference, if the container needs updating, the command and Dockerfile used to create it is provided below.
 
-
-## Dockerfile
+### Dockerfile
 ```
 FROM ubuntu:22.04
 
@@ -58,7 +54,7 @@ CMD ["/bin/bash"]
 ```
 
 
-## Command to build the container
+### Command to build the container
 ```bash
 docker buildx build \
 --platform linux/amd64 \

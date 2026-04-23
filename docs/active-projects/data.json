@@ -1,0 +1,37 @@
+{
+  "nodes": [
+    { "id": "r1", "label": "Anna Lindqvist",  "type": "researcher", "role": "Principal Investigator",    "department": "Neuroscience" },
+    { "id": "r2", "label": "Erik Svensson",   "type": "researcher", "role": "Postdoctoral Researcher",   "department": "Cognitive Science" },
+    { "id": "r3", "label": "Maria Johansson", "type": "researcher", "role": "PhD Student",               "department": "Neuroscience" },
+    { "id": "r4", "label": "Lars Nilsson",    "type": "researcher", "role": "PhD Student",               "department": "Medical Physics" },
+    { "id": "r5", "label": "Sofia Berg",      "type": "researcher", "role": "Postdoctoral Researcher",   "department": "Neuroscience" },
+    { "id": "r6", "label": "Johan Karlsson",  "type": "researcher", "role": "Principal Investigator",    "department": "Clinical Neuroscience" },
+    { "id": "r7", "label": "Emma Andersson",  "type": "researcher", "role": "PhD Student",               "department": "Cognitive Science" },
+    { "id": "r8", "label": "Mikael Persson",  "type": "researcher", "role": "Research Engineer",         "department": "MRI Physics" },
+
+    { "id": "p1", "label": "fMRI Aging Study",          "type": "project", "status": "Active",   "description": "Age-related changes in functional connectivity using 7T fMRI" },
+    { "id": "p2", "label": "MEG Language Processing",   "type": "project", "status": "Active",   "description": "Neural correlates of language processing with SQUID-MEG" },
+    { "id": "p3", "label": "OPM Resting-State",         "type": "project", "status": "Active",   "description": "Resting-state connectivity with on-scalp OPM sensors" },
+    { "id": "p4", "label": "EEG Sleep Research",        "type": "project", "status": "Active",   "description": "Sleep stage classification using high-density EEG" },
+    { "id": "p5", "label": "MRC Clinical Neuroimaging", "type": "project", "status": "Active",   "description": "Clinical 3T MRI protocols for neurological conditions" },
+    { "id": "p6", "label": "Multi-modal Brain Mapping", "type": "project", "status": "Planning", "description": "Combined MRI, MEG and EEG brain mapping" }
+  ],
+  "links": [
+    { "source": "r1", "target": "p1" },
+    { "source": "r1", "target": "p6" },
+    { "source": "r2", "target": "p2" },
+    { "source": "r2", "target": "p3" },
+    { "source": "r3", "target": "p1" },
+    { "source": "r3", "target": "p6" },
+    { "source": "r4", "target": "p3" },
+    { "source": "r4", "target": "p4" },
+    { "source": "r5", "target": "p2" },
+    { "source": "r5", "target": "p6" },
+    { "source": "r6", "target": "p5" },
+    { "source": "r6", "target": "p4" },
+    { "source": "r7", "target": "p2" },
+    { "source": "r7", "target": "p4" },
+    { "source": "r8", "target": "p1" },
+    { "source": "r8", "target": "p5" }
+  ]
+}

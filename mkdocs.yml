@@ -59,6 +59,8 @@ extra_css:
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js
+  - javascripts/researcher-graph.js
 
 markdown_extensions:
   - toc:
@@ -177,3 +179,5 @@ nav:
       - Heudiconv: SPICE/singularity_containers/02_heudiconv.md
       - Halfpipe: SPICE/singularity_containers/03_halfpipe.md
       - MRIQC: SPICE/singularity_containers/04_mriqc.md
+  - Active projects:
+    - active-projects/index.md

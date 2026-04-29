@@ -177,3 +177,4 @@ nav:
       - Heudiconv: SPICE/singularity_containers/02_heudiconv.md
       - Halfpipe: SPICE/singularity_containers/03_halfpipe.md
       - MRIQC: SPICE/singularity_containers/04_mriqc.md
+      - FreeSurfer and MNE-Python: SPICE/singularity_containers/05_freesurfer_mne.md

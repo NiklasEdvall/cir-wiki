@@ -35,11 +35,7 @@ This is done with two repositories, publicly available on Github:
 <br>
 
 # Step by step guide
-The guide starts here with the steps common for any imaging modalities or processing you want to do using **cir-utils**. MRI, PET and MEG data require different inputs, and the respective process for each modality have their own page:
-
-- [MRI](https://k-cir.github.io/cir-wiki/mrc/mrc-bids/)
-- [PET](https://k-cir.github.io/cir-wiki/bmic/03_bmic_bids/04_BIDS-on_SPICE.md)
-- MEG/EEG
+The guide starts here with the steps common for any imaging modalities or processing you want to do using **cir-utils**. MRI, PET and MEG data require different inputs, and the respective process for each modality have their own page from step 3 and onwards. You can jump to the respective page for your modality of interest, but you need to have completed the steps described here first.
 
 ## 0. Know your data
 Before you start, make sure you have an understanding of the data collected for your project. What sequences do you have in your protocol and how are they organized? What are the tasks and patient instructions included in the protocol? Do you need to recode your data, e.g. if you have other data that you want BIDS subject and session IDs to match?
@@ -62,13 +58,11 @@ What it looks like when user **nikedv** connects to project **capsi** using an S
 ## Modality specific processing.
 Now that you have the interface set up - see the respective pages for the different modalities available for BIDSification, dependning on what data is available in your project.
 
-## MRI data
-MRC provide a pipeline for the standard [CIR-protocol](../mrc/mrc-cir-protocol.md) that you can find [here](../mrc/mrc-bids.md). This is a simplified interface for using the [dcm2bids](https://unfmontreal.github.io/Dcm2Bids/3.2.0/) in [parallel](https://www.gnu.org/software/parallel/) to effeciently organizing your data. Essentially, dcm2bids look through your raw data, check if the DICOM metadata match the criteria you specify in a config file and if so, convert those DICOM files to Nifti and organize them in a BIDS format. 
-
-## MEG and EEG data
-Work in progress - watch this space.
-
-## PET
-The interface mentioned above can be used to run [pypet2bids](https://pypi.org/project/pypet2bids/), [petprep](https://github.com/nipreps/petprep) and view its data reports. See [this page](https://k-cir.github.io/cir-wiki/bmic/03_bmic_bids/04_BIDS-on_SPICE.md) for detailed step by step instructions.
-
-Additionally, BMIC provide other standard tools for file conversion and BIDS organization of PET data. See details [here](../bmic/03_bmic_bids/01_file_conversion_tools.md). In addition, there are several [Bids-apps](../bmic/03_bmic_bids/03_pet_bids_apps.md) available for PET data processing and analysis.
+<p style="text-align: left; font-size: 36px; font-weight: bold;">
+  <a href="https://k-cir.github.io/cir-wiki/mrc/mrc-bids/" target="_blank">
+    - MRI to BIDS
+  </a>
+  <a href="https://k-cir.github.io/cir-wiki/bmic/03_bmic_bids/04_BIDS-on_SPICE.md" target="_blank"><br>
+  - PET to BIDS</a><br>
+  - MEG to BIDS (coming soon)
+</p>

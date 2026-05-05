@@ -64,5 +64,5 @@ Now that you have the interface set up - see the respective pages for the differ
   </a>
   <a href="https://k-cir.github.io/cir-wiki/bmic/03_bmic_bids/04_BIDS_on_SPICE/" target="_blank"><br>
   - PET to BIDS</a><br>
-  - MEG to BIDS (coming soon)
+  - MEG to BIDS (coming soon) 
 </p>

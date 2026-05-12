@@ -5,7 +5,9 @@ title: BIDS at MRC
 ## MRC raw data
 Research data collected at MRC should be pushed to the server **FOU1** after each completed session. Doing so, and registering your session in the [CIR-session Redcap form](https://redcap.link/cir-session) ensure your data is collected in your project folder on [SPICE](https://k-cir.github.io/cir-wiki/SPICE/) within 24 hours. The data is stored in the original DICOM format and organized according to a study specific subject ID, session number and MRI sequence number.
 
-The raw data in your project on SPICE will be structured like this:
+The pipeline described below focus on  the standard [CIR-protocol](../mrc/mrc-cir-protocol.md) that includes a set of sequences commonly used in MRI research but the same approach can be used for any MRI data collected at MRC.
+
+The raw data in your project on SPICE is read-only and will be structured like this:
 ```markdown
 /data/projects/yourproject/raw/mri/sub-XXX/ses-XX/
 ├── 00000001

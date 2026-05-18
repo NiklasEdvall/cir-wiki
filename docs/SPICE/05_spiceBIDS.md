@@ -17,7 +17,9 @@ This is done with two repositories, publicly available on Github:
 <p style="text-align: left; font-size: 36px; font-weight: bold; margin: 0 !important; padding: 0; line-height: 1.2;">
   <a href="https://github.com/k-CIR/cir-utils" target="_blank">1. cir-utils</a>
 </p>
-<p style="margin-top: 0;">Clone the repository to your project folder on SPICE (using git). It will manage all the processing on SPICE and setup a server for you to inspect your data, create a config file and run processing via the browser on your local computer. The repository contain:</p>
+<p style="margin-top: 0;">Clone the repository to your project folder on SPICE (using git). It will manage all the processing on SPICE and setup a server for you to inspect your data, create the necessary config files and run processing via the browser on your local computer. Mind that this is a living project with regular updates. It is the responsibility of the indiviual user to keep track of which version they are using and update their local copy of the repository accordingly.</p>
+
+The repository contain:
 
 - **index.html** - A html file with the general browser interface
 - **server.py** - A python script that set up an http server that function as a bridge between SPICE, were the process is happening, and your local computer
@@ -26,7 +28,7 @@ This is done with two repositories, publicly available on Github:
 <p style="text-align: left; font-size: 36px; font-weight: bold; margin: 0 !important; padding: 0; line-height: 1.2;">
   <a href="https://github.com/k-CIR/cir-utils-serve" target="_blank">2. cir-utils-serve</a>
 </p>
-<p style="margin-top: 0;">Clone this repository to your local machine. It contains a simple script that prompt for your user details for connecting to SPICE and project name.</p>
+<p style="margin-top: 0;">Clone this repository to your local machine. It contains a simple script that prompt for your user details for connecting to SPICE and project name. You don't <i>need</i> this repo to run the processing on SPICE, you can SSH in as usual and run <code>server.py</code> from the cir-utils repository in your project folder. You will have to open an SSH tunnel from your local machine manually, follow the instructions in the terminal  to do so.</p>
 
 - **ssh-connect.sh** - A shell script for connecting to SPICE via SSH prompting you for username, project and password (if you don't have SSH keys setup). The script will also setup port forwarding for you to be able to access the server running on SPICE from your local computer. On connection it prints a unique URL to terminal that you can open in your local browser to access the interface for running dcm2bids on SPICE.
 
@@ -66,3 +68,8 @@ Now that you have the interface set up - see the respective pages for the differ
   - PET to BIDS</a><br>
   - MEG to BIDS (coming soon) 
 </p>
+
+![Edit this page screenshot]({{ picture_path }}/mr-bids11.png){ width="850" }
+/// caption
+Depending on what data is available in your project, different tabs will be available in the interface. In the image is an example from the CAPSI project, that has MRI, PET and MEG data (orange). Each modality tab has a number of sub-tabs for different processing steps, in the image PET processing is selected (blue).
+///

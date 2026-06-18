@@ -83,6 +83,9 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.blocks.caption
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 validation:
   links:
     absolute_links: relative_to_docs
@@ -104,33 +107,38 @@ nav:
     - Contribute to this wiki: 03_contribute_to_wiki.md
   - NatMEG: 
     - natmeg/index.md
-    - Preparation: natmeg/preparation/
-    - OPM Acquisition:
-      # - natmeg/opm-acquisition/index.md
-      - natmeg/opm-acquisition/01_OPM-Acquisition.md
-      - natmeg/opm-acquisition/02_OPM-specs.md
-      - natmeg/opm-acquisition/03_known-issues.md
-    - SQUID Acquisition: 
-      - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
-      - EEG: natmeg/squid-acquisition/05_EEG-specs.md
-      - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
-      - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
-    - Stimulus Equipment:
-      - Audio: natmeg/stimulus-equipment/audio
-      - Visual: natmeg/stimulus-equipment/visual
-      - Other: natmeg/stimulus-equipment/other
-    - Response Equipment: natmeg/response-equipment/
+    - Data acquisition:
+      - natmeg/data-acquisition/index.md
+      - Preparation: natmeg/preparation/
+      - OPM Acquisition:
+        - natmeg/opm-acquisition/index.md
+        - natmeg/opm-acquisition/01_OPM-Acquisition.md
+        - natmeg/opm-acquisition/03_known-issues.md
+      - SQUID Acquisition: 
+        - Record headshape: natmeg/squid-acquisition/01_setup_headshape.md
+        - EEG: natmeg/squid-acquisition/05_EEG-specs.md
+        - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
+        - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
+    - Equipment: 
+      - Stimulus Equipment:
+        - Audio: natmeg/equipment/stimulus-equipment/audio
+        - Visual: natmeg/equipment/stimulus-equipment/visual
+        - Other: natmeg/equipment/stimulus-equipment/other
+      - Response Equipment: natmeg/equipment/response-equipment/
+      - Other: natmeg/equipment/other/
     - Presentation: natmeg/presentation/
     - Preprocessing:
-      - Using the GUI: natmeg/preprocessing/config_gui.md
-      - Pipeline: natmeg/preprocessing/pipeline.md
-      # https://github.com/k-CIR/NatMEG-utils/blob/main/README.md
+      - natmeg/preprocessing/index.md
       - About MaxFilter: natmeg/preprocessing/maxfilter
-    - Other: natmeg/other/
+    - BIDS: natmeg/bids
     - MEEG-analyis: 
       - natmeg/MEEG-analysis/index.md
       - Tips and tricks: natmeg/MEEG-analysis/tips-and-tricks/
-    - Cerberos: natmeg/cerberos/
+    - Cerberos:
+      - natmeg/cerberos/index.md
+      - natmeg/cerberos/seshat.md
+      - natmeg/other/Beyond-compare.md
+      - natmeg/cerberos/issues.md
     - Legacy documentation:
       - natmeg/server/index.md
       - Acquisition: natmeg/squid-acquisition/acquisition-manual

@@ -28,7 +28,7 @@ Acquisition is the main program you need for running the MEG-recording.
 
 !!! tip "Save preparation before digitisation to transfer settings to digitisation computer"
 
-> Do [Digitisation](../../preparation/02_Digitization-hpi.md) (save preparation)
+> Do [Digitisation](../preparation/02_Digitization-hpi.md) (save preparation)
 
 **5. Load preparation**
 
@@ -40,7 +40,7 @@ Acquisition is the main program you need for running the MEG-recording.
 1. Press  **GO!**  to start recording buffer
 2. Check  **Record raw**  to record raw file(s)
 3. wait ~10 seconds **Stop**
-4. Save file as `headshape`, `coreg` or any [reasonable own choice](../../other/File-naming.md) but be consistent across recordings
+4. Save file as `headshape`, `coreg` or any [reasonable own choice](../other/File-naming.md) but be consistent across recordings
 
 
 ## Issues

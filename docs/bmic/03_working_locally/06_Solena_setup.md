@@ -1,5 +1,5 @@
 ---
-title: Initial Setup
+title: Initial Solena Setup
 ---
 
 Follow these steps to set up Solena in MATLAB for the first time.

@@ -148,9 +148,8 @@ nav:
       - Troubleshooting: natmeg/server/troubleshooting/
   - BMIC: 
     - BMIC: bmic/index.md
-    - Getting Started: bmic/01_getting_started
-    - Solena: bmic/02_solena
-    - BIDS at BMIC: bmic/03_bmic_bids
+    - Working on SPICE: bmic/02_bmic_spice
+    - Working Locally: bmic/03_working_locally
   - MRC:
     - mrc/index.md
     - mrc/mrc-bids.md

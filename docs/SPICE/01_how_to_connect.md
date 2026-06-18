@@ -77,6 +77,14 @@ Using a remote desktop client is useful if you need to use a graphical interface
 
 Most windows installations have the Remote Desktop Client pre-installed. On macOS, download the "Windows App" from the [App Store](https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12).
 
+macOS setup:
+
+1. Open the Windows App and select "Add PC" (+) in Devices.
+2. Enter compute.kcir.se (or 193.10.16.5) as the PC name.
+3. Leave the user account as "Ask when required", or "Add Credentials" to save your login details. 
+4. Save the connection and double-click the newly added PC to connect.
+5. Enter your SPICE username and password when prompted.
+
 ![VScode-extensions]({{ picture_path }}/remote_desktop.png){ width="500" }
 /// caption
 The Remote Desktop Client and login screen.

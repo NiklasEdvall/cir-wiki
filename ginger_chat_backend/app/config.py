@@ -24,7 +24,13 @@ class Settings:
 
 def _parse_allowed_origins(raw_value: str | None) -> list[str]:
     if not raw_value:
-        return ["http://127.0.0.1:8000", "http://localhost:8000", "http://127.0.0.1:8001", "http://localhost:8001"]
+        return [
+            "https://k-cir.github.io",
+            "http://127.0.0.1:8000",
+            "http://localhost:8000",
+            "http://127.0.0.1:8001",
+            "http://localhost:8001",
+        ]
     return [origin.strip() for origin in raw_value.split(",") if origin.strip()]
 
 

@@ -21,7 +21,7 @@ from .wiki_index import SearchResult, WikiIndex
 logger = logging.getLogger(__name__)
 
 _CITATION_RE = re.compile(r"\[(\d+)\]")
-_FEEDBACK_LOG = Path(__file__).resolve().parents[1] / "feedback.jsonl"
+_FEEDBACK_LOG = Path(__file__).resolve().parents[1] / "eval" / "feedback.jsonl"
 
 
 def _anchor_text(item: SourceItem) -> str:

@@ -4,7 +4,7 @@ import json
 import logging
 from dataclasses import dataclass
 
-from openai import AzureOpenAI
+from openai import OpenAI
 
 from .config import Settings
 from .models import ChatMessage
@@ -110,10 +110,9 @@ class QueryPlanner:
         self._settings = settings
         self._client = None
         if settings.azure_api_key:
-            self._client = AzureOpenAI(
+            self._client = OpenAI(
                 api_key=settings.azure_api_key,
-                azure_endpoint=settings.azure_endpoint,
-                api_version=settings.azure_api_version,
+                base_url=settings.azure_endpoint
             )
 
     @property

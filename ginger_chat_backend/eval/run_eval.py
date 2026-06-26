@@ -9,7 +9,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
-DEFAULT_BASE_URL = os.getenv("ZIGGA_CHAT_EVAL_BASE_URL", "http://127.0.0.1:8001")
+DEFAULT_BASE_URL = os.getenv("GINGER_CHAT_EVAL_BASE_URL") or os.getenv("ZIGGA_CHAT_EVAL_BASE_URL", "http://127.0.0.1:8001")
 BENCHMARK_PATH = Path(__file__).with_name("benchmark.json")
 
 

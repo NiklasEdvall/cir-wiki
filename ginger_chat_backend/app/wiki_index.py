@@ -15,6 +15,8 @@ HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
 TOKEN_PATTERN = re.compile(r"[0-9A-Za-zÅÄÖåäö][0-9A-Za-zÅÄÖåäö_\-]{1,}")
 
 PATH_TOKEN_BOOST = 3.0
+SUBTREE_FALLBACK_SCORE_RATIO = 2.0
+SUBTREE_FALLBACK_SCORE_MARGIN = 10.0
 
 STOPWORDS = {
     "about",
@@ -112,7 +114,8 @@ def _extract_title(text: str, fallback: str) -> str:
 
 
 def _tokenize(value: str) -> list[str]:
-    return [token.lower() for token in TOKEN_PATTERN.findall(value)]
+    normalized = value.replace("-", " ")
+    return [token.lower() for token in TOKEN_PATTERN.findall(normalized)]
 
 
 def _filter_index_tokens(tokens: Iterable[str]) -> list[str]:
@@ -345,8 +348,15 @@ class WikiIndex:
 
         scoped_index = self.subtree_filter(subtree)
         results = run(scoped_index)
-        if subtree and not results:
-            return run(self)
+        if subtree:
+            global_results = run(self)
+            if not results:
+                return global_results
+            if global_results and global_results[0].score >= max(
+                results[0].score * SUBTREE_FALLBACK_SCORE_RATIO,
+                results[0].score + SUBTREE_FALLBACK_SCORE_MARGIN,
+            ):
+                return global_results
         return results
 
     def aggregate_by_page(self, results: list[SearchResult], page_limit: int) -> list[SearchResult]:

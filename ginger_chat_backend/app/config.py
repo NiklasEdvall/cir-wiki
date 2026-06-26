@@ -18,6 +18,7 @@ class Settings:
     retrieval_top_k: int
     chunk_size: int
     chunk_overlap: int
+    source_char_limit: int
     site_base_url: str
 
 
@@ -27,25 +28,34 @@ def _parse_allowed_origins(raw_value: str | None) -> list[str]:
     return [origin.strip() for origin in raw_value.split(",") if origin.strip()]
 
 
+def _env(*names: str, default: str | None = None) -> str | None:
+    for name in names:
+        value = os.getenv(name)
+        if value is not None:
+            return value
+    return default
+
+
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     project_root = Path(__file__).resolve().parents[2]
-    docs_root = Path(os.getenv("ZIGGA_CHAT_DOCS_ROOT", project_root / "docs")).resolve()
+    docs_root = Path(_env("GINGER_CHAT_DOCS_ROOT", default=str(project_root / "docs"))).resolve()
 
     return Settings(
-        azure_api_key=os.getenv("ZIGGA_CHAT_AZURE_API_KEY") or os.getenv("AZURE_API"),
-        azure_endpoint=os.getenv(
-            "ZIGGA_CHAT_AZURE_ENDPOINT",
-            "https://cns-caii-prod.cognitiveservices.azure.com/",
+        azure_api_key=_env("GINGER_CHAT_AZURE_API_KEY", "CIR_AZURE_API"),
+        azure_endpoint=_env(
+            "GINGER_CHAT_AZURE_ENDPOINT",
+            default="https://cir-openai.services.ai.azure.com/openai/v1",
         ),
-        azure_api_version=os.getenv("ZIGGA_CHAT_AZURE_API_VERSION", "2024-12-01-preview"),
-        azure_deployment=os.getenv("ZIGGA_CHAT_AZURE_DEPLOYMENT", "gpt-4.1-mini"),
+        azure_api_version=_env("GINGER_CHAT_AZURE_API_VERSION", default="2024-12-01-preview"),
+        azure_deployment=_env("GINGER_CHAT_AZURE_DEPLOYMENT", default="gpt-4.1-mini"),
         # Future candidate: Codestral-2501 for lower latency on the planning step.
-        planning_model=os.getenv("ZIGGA_CHAT_PLANNING_MODEL", "gpt-4.1-mini"),
-        allowed_origins=_parse_allowed_origins(os.getenv("ZIGGA_CHAT_ALLOWED_ORIGINS")),
+        planning_model=_env("GINGER_CHAT_PLANNING_MODEL", default="gpt-4.1-nano"),
+        allowed_origins=_parse_allowed_origins(_env("GINGER_CHAT_ALLOWED_ORIGINS")),
         docs_root=docs_root,
-        retrieval_top_k=max(1, int(os.getenv("ZIGGA_CHAT_RETRIEVAL_TOP_K", "6"))),
-        chunk_size=max(400, int(os.getenv("ZIGGA_CHAT_CHUNK_SIZE", "1400"))),
-        chunk_overlap=max(0, int(os.getenv("ZIGGA_CHAT_CHUNK_OVERLAP", "120"))),
-        site_base_url=os.getenv("ZIGGA_CHAT_SITE_BASE_URL", "").rstrip("/"),
+        retrieval_top_k=max(1, int(_env("GINGER_CHAT_RETRIEVAL_TOP_K", default="6"))),
+        chunk_size=max(400, int(_env("GINGER_CHAT_CHUNK_SIZE", default="1400"))),
+        chunk_overlap=max(0, int(_env("GINGER_CHAT_CHUNK_OVERLAP", default="120"))),
+        source_char_limit=max(100, int(_env("GINGER_CHAT_SOURCE_CHAR_LIMIT", default="500"))),
+        site_base_url=_env("GINGER_CHAT_SITE_BASE_URL", default="").rstrip("/"),
     )

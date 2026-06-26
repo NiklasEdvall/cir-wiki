@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import re as _re
 
-from openai import AzureOpenAI
+from openai import OpenAI
 
 from .config import Settings
 from .models import ChatMessage, PageContext
@@ -16,6 +16,7 @@ Rules:
 - Answer only from the provided CIR wiki context.
 - Answer directly and concisely. For non-inventory questions, use at most 3-5 sentences.
 - Use inline citations like [1], [2] only for the supplied sources.
+- Citations must be bare integers in square brackets only: [1], [2]. Never put words, phrases, titles, or URLs inside brackets.
 - Never invent facts, links, or citations.
 - Do not add a "Summary:" section or any heading.
 - Do not narrate what the sources say before answering. Give the answer directly.
@@ -45,10 +46,9 @@ class AzureWikiChatClient:
         self._settings = settings
         self._client = None
         if settings.azure_api_key:
-            self._client = AzureOpenAI(
+            self._client = OpenAI(
                 api_key=settings.azure_api_key,
-                azure_endpoint=settings.azure_endpoint,
-                api_version=settings.azure_api_version,
+                base_url=settings.azure_endpoint
             )
 
     @property
@@ -82,9 +82,8 @@ class AzureWikiChatClient:
                 "\n".join(
                     [
                         f"[{index}] Title: {chunk.title}",
-                        f"[{index}] URL: {chunk.url}",
                         f"[{index}] Section: {chunk.section or 'General'}",
-                        f"[{index}] Content: {chunk.content}",
+                        f"[{index}] Content: {chunk.content[:self._settings.source_char_limit]}",
                     ]
                 )
             )

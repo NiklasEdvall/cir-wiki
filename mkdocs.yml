@@ -108,6 +108,7 @@ nav:
     - Collecting data at CIR: 01_data_collection.md
     - How to edit this wiki: 02_how_to_edit_wiki.md
     - Contribute to this wiki: 03_contribute_to_wiki.md
+    - Ginger chat assistant: 04_ginger_chat.md
   - NatMEG: 
     - natmeg/index.md
     - Data acquisition:
@@ -123,6 +124,7 @@ nav:
         - Bichannels: natmeg/squid-acquisition/06_Biochannels-specs.md
         - Lab Notebook: natmeg/squid-acquisition/07_Lab-notebook.md
     - Equipment: 
+      - natmeg/equipment/index.md
       - Stimulus Equipment:
         - Audio: natmeg/equipment/stimulus-equipment/audio
         - Visual: natmeg/equipment/stimulus-equipment/visual

@@ -26,12 +26,27 @@ def _parse_allowed_origins(raw_value: str | None) -> list[str]:
     if not raw_value:
         return [
             "https://k-cir.github.io",
+            "https://niklasedvall.github.io",
             "http://127.0.0.1:8000",
             "http://localhost:8000",
             "http://127.0.0.1:8001",
             "http://localhost:8001",
         ]
-    return [origin.strip() for origin in raw_value.split(",") if origin.strip()]
+    # Origins must be scheme+host only (no path). Strip any trailing path components.
+    origins = []
+    for raw in raw_value.split(","):
+        raw = raw.strip()
+        if not raw:
+            continue
+        # Normalise: keep only scheme://host (drop path if accidentally included)
+        parts = raw.split("/")
+        if len(parts) >= 3:
+            # "https://host/path..." → "https://host"
+            origin = "/".join(parts[:3])
+        else:
+            origin = raw
+        origins.append(origin)
+    return origins
 
 
 def _env(*names: str, default: str | None = None) -> str | None:

@@ -1,7 +1,7 @@
 .ginger-chat {
     position: fixed;
     right: 1rem;
-    bottom: 4.5rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
+    bottom: 6rem; /* clears the MkDocs Material bottom navigation bar (~3.6rem tall) */
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
     box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font: inherit;
-    font-size: 1.75rem;
+    font-size: 1rem;
     font-weight: 600;
     padding: 1.4rem 1.8rem;
 }

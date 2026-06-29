@@ -20,6 +20,7 @@ class Settings:
     chunk_overlap: int
     source_char_limit: int
     site_base_url: str
+    download_token: str | None
 
 
 def _parse_allowed_origins(raw_value: str | None) -> list[str]:
@@ -81,4 +82,5 @@ def get_settings() -> Settings:
         chunk_overlap=max(0, int(_env("GINGER_CHAT_CHUNK_OVERLAP", default="120"))),
         source_char_limit=max(100, int(_env("GINGER_CHAT_SOURCE_CHAR_LIMIT", default="500"))),
         site_base_url=_env("GINGER_CHAT_SITE_BASE_URL", default="").rstrip("/"),
+        download_token=_env("GINGER_CHAT_DOWNLOAD_TOKEN") or None,
     )

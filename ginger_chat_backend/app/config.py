@@ -59,8 +59,10 @@ def _env(*names: str, default: str | None = None) -> str | None:
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
-    project_root = Path(__file__).resolve().parents[2]
-    docs_root = Path(_env("GINGER_CHAT_DOCS_ROOT", default=str(project_root / "docs"))).resolve()
+    # parents[0] = app/, parents[1] = package root (ginger_chat_backend/ contents).
+    # docs/ is copied into the package root by the deploy workflow, so parents[1]/docs is correct.
+    package_root = Path(__file__).resolve().parents[1]
+    docs_root = Path(_env("GINGER_CHAT_DOCS_ROOT", default=str(package_root / "docs"))).resolve()
 
     return Settings(
         azure_api_key=_env("GINGER_CHAT_AZURE_API_KEY", "CIR_AZURE_API"),

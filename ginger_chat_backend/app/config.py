@@ -26,12 +26,27 @@ def _parse_allowed_origins(raw_value: str | None) -> list[str]:
     if not raw_value:
         return [
             "https://k-cir.github.io",
+            "https://niklasedvall.github.io",
             "http://127.0.0.1:8000",
             "http://localhost:8000",
             "http://127.0.0.1:8001",
             "http://localhost:8001",
         ]
-    return [origin.strip() for origin in raw_value.split(",") if origin.strip()]
+    # Origins must be scheme+host only (no path). Strip any trailing path components.
+    origins = []
+    for raw in raw_value.split(","):
+        raw = raw.strip()
+        if not raw:
+            continue
+        # Normalise: keep only scheme://host (drop path if accidentally included)
+        parts = raw.split("/")
+        if len(parts) >= 3:
+            # "https://host/path..." → "https://host"
+            origin = "/".join(parts[:3])
+        else:
+            origin = raw
+        origins.append(origin)
+    return origins
 
 
 def _env(*names: str, default: str | None = None) -> str | None:
@@ -44,8 +59,10 @@ def _env(*names: str, default: str | None = None) -> str | None:
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
-    project_root = Path(__file__).resolve().parents[2]
-    docs_root = Path(_env("GINGER_CHAT_DOCS_ROOT", default=str(project_root / "docs"))).resolve()
+    # parents[0] = app/, parents[1] = package root (ginger_chat_backend/ contents).
+    # docs/ is copied into the package root by the deploy workflow, so parents[1]/docs is correct.
+    package_root = Path(__file__).resolve().parents[1]
+    docs_root = Path(_env("GINGER_CHAT_DOCS_ROOT", default=str(package_root / "docs"))).resolve()
 
     return Settings(
         azure_api_key=_env("GINGER_CHAT_AZURE_API_KEY", "CIR_AZURE_API"),
